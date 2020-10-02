@@ -3,12 +3,8 @@
 #각 페이지에 접근
 #import urlb
 
-import requests
+from indeed import extract_indeed_pages, extract_indeed_jobs
 
-indeed_result = requests.get("https://www.indeed.com/jobs?q=python&limit=50")
+last_indeed_page = extract_indeed_pages()
 
-#모든 html요소 가져오기
-print(indeed_result.text)
-
-#html로부터 정보 추출하기(페이지 정보)
-#beautiful soup lib
+indeed_jobs = extract_indeed_jobs(last_indeed_page)
